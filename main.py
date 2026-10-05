@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from routers.user import router as user_router
+from routers.room import router as room_router
 from database import engine, Base
 import models
 
 app = FastAPI()
 app.include_router(user_router)
+app.include_router(room_router)
 
 @app.get("/")
 def home():
